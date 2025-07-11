@@ -25,6 +25,14 @@
         </activity>
 
         <provider
+            android:name="com.thienna.capacitor.sharedstore.SharedProvider"
+            android:authorities="${applicationId}.SharedProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="${applicationId}.READ_DATABASE"
+            android:writePermission="${applicationId}.WRITE_DATABASE" />
+
+        <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -38,4 +46,12 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="${applicationId}.READ_DATABASE"
+        android:label="Read Database"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="${applicationId}.WRITE_DATABASE"
+        android:label="Write Database"
+        android:protectionLevel="signature" />
 </manifest>

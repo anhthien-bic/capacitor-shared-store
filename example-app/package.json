@@ -13,10 +13,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "7.0.0",
+    "@capacitor/camera": "^7.0.1",
     "@capacitor/core": "latest",
-    "capacitor-shared-store": "file:..",
     "@capacitor/ios": "7.0.0",
-    "@capacitor/android": "7.0.0"
+    "@capacitor/splash-screen": "^7.0.1",
+    "capacitor-shared-store": "file:.."
   },
   "devDependencies": {
     "@capacitor/cli": "latest",

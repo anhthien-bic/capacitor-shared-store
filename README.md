@@ -13,24 +13,42 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`getItem(...)`](#getitem)
+* [`setItem(...)`](#setitem)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### getItem(...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+getItem(options: { key: string; appGroup: string; }) => Promise<{ value: string | null; }>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+Lấy giá trị theo key từ App Group
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`options`** | <code>{ key: string; appGroup: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string | null; }&gt;</code>
+
+--------------------
+
+
+### setItem(...)
+
+```typescript
+setItem(options: { key: string; value: string; appGroup: string; }) => Promise<void>
+```
+
+Lưu giá trị key-value vào App Group
+
+| Param         | Type                                                           |
+| ------------- | -------------------------------------------------------------- |
+| **`options`** | <code>{ key: string; value: string; appGroup: string; }</code> |
 
 --------------------
 

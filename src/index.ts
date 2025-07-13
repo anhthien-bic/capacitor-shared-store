@@ -1,10 +1,10 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { ExamplePlugin } from './definitions';
+import type { SharedStorePlugin } from './definitions';
 
-const Example = registerPlugin<ExamplePlugin>('Example', {
-  web: () => import('./web').then((m) => new m.ExampleWeb()),
+const SharedStore = registerPlugin<SharedStorePlugin>('SharedStore', {
+  web: () => import('./web').then((m) => new m.SharedStoreWeb()),
 });
 
 export * from './definitions';
-export { Example };
+export { SharedStore };

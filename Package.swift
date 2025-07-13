@@ -7,22 +7,22 @@ let package = Package(
     products: [
         .library(
             name: "CapacitorSharedStore",
-            targets: ["ExamplePlugin"])
+            targets: ["SharedStorePlugin"])
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "7.0.0")
     ],
     targets: [
         .target(
-            name: "ExamplePlugin",
+            name: "SharedStorePlugin",
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm")
             ],
-            path: "ios/Sources/ExamplePlugin"),
+            path: "ios/Sources/SharedStorePlugin"),
         .testTarget(
-            name: "ExamplePluginTests",
-            dependencies: ["ExamplePlugin"],
-            path: "ios/Tests/ExamplePluginTests")
+            name: "SharedStorePluginTests",
+            dependencies: ["SharedStorePlugin"],
+            path: "ios/Tests/SharedStorePluginTests")
     ]
 )

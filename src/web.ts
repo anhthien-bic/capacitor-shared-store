@@ -1,10 +1,12 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { ExamplePlugin } from './definitions';
+import type { SharedStorePlugin } from './definitions';
 
-export class ExampleWeb extends WebPlugin implements ExamplePlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+export class SharedStoreWeb extends WebPlugin implements SharedStorePlugin {
+  getItem(options: { key: string; appGroup: string; }): Promise<{ value: string | null; }> {
+    throw new Error('Method not implemented.');
+  }
+  setItem(options: { key: string; value: string; appGroup: string; }): Promise<void> {
+    throw new Error('Method not implemented.');
   }
 }

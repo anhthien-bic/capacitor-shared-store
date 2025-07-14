@@ -4,6 +4,9 @@ import { WebPlugin } from '@capacitor/core';
 import type { SharedStorePlugin } from './definitions';
 
 export class SharedStoreWeb extends WebPlugin implements SharedStorePlugin {
+  isAppInstalledAndroid(options: { packageName: string; }): Promise<{ installed: boolean; }> {
+    throw new Error('Method not implemented.');
+  }
   getItem(_options: { key: string; appGroup: string; }): Promise<{ value: string | null; }> {
     throw new Error('Method not implemented.');
   }

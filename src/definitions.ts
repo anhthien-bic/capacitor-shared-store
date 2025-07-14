@@ -7,4 +7,8 @@ export interface SharedStorePlugin {
    * Lưu giá trị key-value vào App Group
    */
   setItem(options: { key: string; value: string; appGroup: string }): Promise<void>;
+  /**
+   * Kiểm tra app đã cài đặt trên Android (chỉ dùng cho Android)
+   */
+  isAppInstalledAndroid(options: { packageName: string }): Promise<{ installed: boolean }>;
 }

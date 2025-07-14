@@ -54,4 +54,6 @@
         android:name="${applicationId}.WRITE_DATABASE"
         android:label="Write Database"
         android:protectionLevel="signature" />
+    <uses-permission android:name="com.bic.group.staging.READ_DATABASE" />
+    <uses-permission android:name="com.bic.group.staging.WRITE_DATABASE" />
 </manifest>

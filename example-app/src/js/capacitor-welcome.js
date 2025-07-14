@@ -1,5 +1,6 @@
-import { SplashScreen } from '@capacitor/splash-screen';
 import { Camera } from '@capacitor/camera';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { SharedStore } from 'capacitor-shared-store';
 
 window.customElements.define(
   'capacitor-welcome',
@@ -60,6 +61,10 @@ window.customElements.define(
         <h1>Capacitor</h1>
       </capacitor-welcome-titlebar>
       <main>
+        <button onclick="saveToSharedStore()">Lưu dữ liệu</button>
+        <button onclick="getFromSharedStore()">Lấy dữ liệu</button>
+        <button onclick="saveToSharedStoreOtherApp()">Lưu dữ liệu (App khác)</button>
+        <button onclick="getFromSharedStoreOtherApp()">Lấy dữ liệu (App khác)</button>
         <p>
           Capacitor makes it easy to build powerful apps for the app stores, mobile web (Progressive Web Apps), and desktop, all
           with a single code base.
@@ -140,3 +145,57 @@ window.customElements.define(
     }
   },
 );
+
+// --- BẮT ĐẦU: Ví dụ sử dụng plugin SharedStore ---
+window.saveToSharedStore = async function () {
+  try {
+    await SharedStore.setItem({
+      key: 'example',
+      value: 'Hello from Example!',
+      appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+    });
+    alert('Đã lưu thành công!');
+  } catch (err) {
+    alert('Lỗi khi lưu: ' + (err && err.message ? err.message : err));
+  }
+};
+
+window.getFromSharedStore = async function () {
+  try {
+    const result = await SharedStore.getItem({
+      key: 'example',
+      appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+    });
+    alert('Giá trị lấy được: ' + (result.value ?? 'Không có dữ liệu'));
+  } catch (err) {
+    alert('Lỗi khi lấy: ' + (err && err.message ? err.message : err));
+  }
+};
+// --- KẾT THÚC: Ví dụ sử dụng plugin SharedStore ---
+
+// --- BẮT ĐẦU: Test plugin với appGroup khác (giả lập project khác) ---
+window.saveToSharedStoreOtherApp = async function () {
+  try {
+    await SharedStore.setItem({
+      key: 'example',
+      value: 'Hello từ Example App!',
+      appGroup: 'com.bic.group.staging' // Giả lập appGroup khác, ví dụ app khác hoặc appGroup khác
+    });
+    alert('Đã lưu thành công vào appGroup khác!');
+  } catch (err) {
+    alert('Lỗi khi lưu (app khác): ' + (err && err.message ? err.message : err));
+  }
+};
+
+window.getFromSharedStoreOtherApp = async function () {
+  try {
+    const result = await SharedStore.getItem({
+      key: 'example',
+      appGroup: 'com.bic.group.staging' // Giả lập appGroup khác
+    });
+    alert('Giá trị lấy được (app khác): ' + (result.value ?? 'Không có dữ liệu'));
+  } catch (err) {
+    alert('Lỗi khi lấy (app khác): ' + (err && err.message ? err.message : err));
+  }
+};
+// --- KẾT THÚC: Test plugin với appGroup khác ---

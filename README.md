@@ -15,6 +15,7 @@ npx cap sync
 
 * [`getItem(...)`](#getitem)
 * [`setItem(...)`](#setitem)
+* [`isAppInstalledAndroid(...)`](#isappinstalledandroid)
 
 </docgen-index>
 
@@ -49,6 +50,23 @@ Lưu giá trị key-value vào App Group
 | Param         | Type                                                           |
 | ------------- | -------------------------------------------------------------- |
 | **`options`** | <code>{ key: string; value: string; appGroup: string; }</code> |
+
+--------------------
+
+
+### isAppInstalledAndroid(...)
+
+```typescript
+isAppInstalledAndroid(options: { packageName: string; }) => Promise<{ installed: boolean; }>
+```
+
+Kiểm tra app đã cài đặt trên Android (chỉ dùng cho Android)
+
+| Param         | Type                                  |
+| ------------- | ------------------------------------- |
+| **`options`** | <code>{ packageName: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ installed: boolean; }&gt;</code>
 
 --------------------
 

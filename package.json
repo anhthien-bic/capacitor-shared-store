@@ -1,6 +1,6 @@
 {
   "name": "@thienna/capacitor-shared-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Capacitor plugin for sharing key-value data between Android and iOS apps using Content Provider and App Groups.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

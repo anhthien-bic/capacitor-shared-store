@@ -6,7 +6,15 @@ import Capacitor
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(SharedStorePlugin)
-public class SharedStorePlugin: CAPPlugin {
+public class SharedStorePlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "SharedStorePlugin"
+    public let jsName = "SharedStore"
+
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "getItem", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "setItem", returnType: CAPPluginReturnPromise)
+    ]
+
     var mySharedDefaults: UserDefaults?
     var appGroupName: String = ""
 

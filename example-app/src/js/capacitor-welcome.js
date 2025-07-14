@@ -152,7 +152,8 @@ window.saveToSharedStore = async function () {
     await SharedStore.setItem({
       key: 'example',
       value: 'Hello from Example!',
-      appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+      appGroup: 'group.com.bic.staging' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+      // appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
     });
     alert('Đã lưu thành công!');
   } catch (err) {
@@ -164,7 +165,8 @@ window.getFromSharedStore = async function () {
   try {
     const result = await SharedStore.getItem({
       key: 'example',
-      appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+      // appGroup: 'com.example.plugin' // Thay bằng App Group thực tế trên iOS, hoặc packageName trên Android
+      appGroup: 'group.com.bic.staging'
     });
     alert('Giá trị lấy được: ' + (result.value ?? 'Không có dữ liệu'));
   } catch (err) {

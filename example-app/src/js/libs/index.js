@@ -1,5 +1,5 @@
 // import { Capacitor } from '@capacitor/core';
-// import { SharedStore as CapSharedStore } from '@thienna/capacitor-shared-store';
+// import { SharedStore as CapSharedStore } from 'capacitor-shared-store';
 // import { safeJsonParse } from '@/utils/common';
 // import { decryptAes, encryptAes } from '@/utils/crypto';
 

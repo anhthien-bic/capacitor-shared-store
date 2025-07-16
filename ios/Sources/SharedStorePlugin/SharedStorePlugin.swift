@@ -53,4 +53,9 @@ public class SharedStorePlugin: CAPPlugin, CAPBridgedPlugin {
         mySharedDefaults?.setValue(value, forKey: key)
         call.resolve()
     }
+
+    @objc func isAppInstalledAndroid(_ call: CAPPluginCall) {
+        // Placeholder cho iOS: luôn trả về false
+        call.resolve(["installed": false])
+    }
 }

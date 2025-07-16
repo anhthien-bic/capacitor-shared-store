@@ -1,6 +1,6 @@
 {
   "name": "capacitor-shared-store",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Capacitor plugin for sharing key-value data between Android and iOS apps using Content Provider and App Groups.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
